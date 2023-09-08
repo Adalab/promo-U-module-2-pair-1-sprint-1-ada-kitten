@@ -3,6 +3,10 @@ const kittenList= document.querySelector(".js-list");
 /* Agregar el código del li desde HTMl 
 Repetir este proceso por cada gatito */
 
+const input_search_desc = document.querySelector('.js_in_search_desc');
+
+const descrSearchText = input_search_desc.value;
+
 const kitten1Image = 'https://dev.adalab.es/gato-siames.webp';
 
 const kitten1Name = ('Anastacio' .toUpperCase());
@@ -75,6 +79,15 @@ const kittenThree = `<li class="card">
 </p>
 </li>`;
 
+if( kitten1Desc.includes(descrSearchText) ) {
+  kittenList.innerHTML = kittenOne;
+}
 
-kittenList.innerHTML = kittenOne + kittenTwo + kittenThree;
+if( kitten2Desc.includes(descrSearchText) ) {
+  kittenList.innerHTML = kittenTwo;
+}
+if( kitten3Desc.includes(descrSearchText) ) {
+  kittenList.innerHTML = kittenThree;
+  }
 
+  // kittenList.innerHTML = kittenOne + kittenTwo + kittenThree;

@@ -91,6 +91,9 @@ li {
   justify-content: center;
   align-items: center;
 }
+.hidden{
+  display:none;
+}
 
 .search .title {
   color: fff;
