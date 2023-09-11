@@ -79,15 +79,44 @@ const kittenThree = `<li class="card">
 </p>
 </li>`;
 
-if( kitten1Desc.includes(descrSearchText) ) {
-  kittenList.innerHTML = kittenOne;
-}
+// if( kitten1Desc.includes(descrSearchText) ) {
+//   kittenList.innerHTML = kittenOne;
+// }
 
-if( kitten2Desc.includes(descrSearchText) ) {
-  kittenList.innerHTML = kittenTwo;
-}
-if( kitten3Desc.includes(descrSearchText) ) {
-  kittenList.innerHTML = kittenThree;
+// if( kitten2Desc.includes(descrSearchText) ) {
+//   kittenList.innerHTML = kittenTwo;
+// }
+// if( kitten3Desc.includes(descrSearchText) ) {
+//   kittenList.innerHTML = kittenThree;
+//   }
+
+kittenList.innerHTML = kittenOne + kittenTwo + kittenThree;
+
+const addBtn = document.querySelector('.js-btn-add');
+const deleteNone = document.querySelector('.collapsed');
+
+addBtn.addEventListener('click', (e) => {
+  deleteNone.classList.remove('collapsed');
+})
+
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+
+const addCat = document.querySelector('.button');
+
+addCat.addEventListener('click', (e) => {
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    labelMessageError.innerHTML = 'Uy! Parece que has olvidado algo';
+  } else {
+    valueDesc = inputDesc.value;
+    valuePhoto = inputPhoto.value;
+    valueName = inputName.value;
   }
+})
 
-  // kittenList.innerHTML = kittenOne + kittenTwo + kittenThree;
