@@ -95,28 +95,46 @@ kittenList.innerHTML = kittenOne + kittenTwo + kittenThree;
 const addBtn = document.querySelector('.js-btn-add');
 const deleteNone = document.querySelector('.collapsed');
 
-addBtn.addEventListener('click', (e) => {
-  deleteNone.classList.remove('collapsed');
-})
+// addBtn.addEventListener('click', (e) => {
+//   deleteNone.classList.toggle('collapsed');
+// })
 
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
 const labelMessageError = document.querySelector('.js-label-error');
+const newForm = document.querySelector('.new-form');
 
-const valueDesc = inputDesc.value;
-const valuePhoto = inputPhoto.value;
-const valueName = inputName.value;
 
-const addCat = document.querySelector('.button');
+// const valueDesc = inputDesc.value;
+// const valuePhoto = inputPhoto.value;
+// const valueName = inputName.value;
 
-addCat.addEventListener('click', (e) => {
-  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-    labelMessageError.innerHTML = 'Uy! Parece que has olvidado algo';
+// const addCat = document.querySelector('.button');
+
+// addCat.addEventListener('click', (e) => {
+//   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+//     labelMessageError.innerHTML = 'Uy! Parece que has olvidado algo';
+//   } else {
+//     valueDesc = inputDesc.value;
+//     valuePhoto = inputPhoto.value;
+//     valueName = inputName.value;
+//   }
+// })
+
+function showNewCatForm() {
+  newForm.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+  newForm.classList.add('collapsed');
+}
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (newForm.classList.contains('collapsed')) {
+    addBtn.addEventListener('click', showNewCatForm);
   } else {
-    valueDesc = inputDesc.value;
-    valuePhoto = inputPhoto.value;
-    valueName = inputName.value;
+    addBtn.addEventListener('click', hideNewCatForm);
   }
-})
+}
 
+ addBtn.addEventListener('click', handleClickNewCatForm);
