@@ -112,7 +112,7 @@ const addCat = document.querySelector('.button');
 
 addCat.addEventListener('click', (e) => {
   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
-    labelMessageError.innerHTML = 'Uy! Parece que has olvidado algo';
+    labelMessageError.innerHTML = `Uy! Parece que has olvidado algo`;
   } else {
     valueDesc = inputDesc.value;
     valuePhoto = inputPhoto.value;
