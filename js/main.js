@@ -5,7 +5,7 @@ Repetir este proceso por cada gatito */
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
 
-const descrSearchText = input_search_desc.value;
+
 
 const kitten1Image = 'https://dev.adalab.es/gato-siames.webp';
 
@@ -121,20 +121,50 @@ const newForm = document.querySelector('.new-form');
 //     valueName = inputName.value;
 //   }
 // })
+// Creamos funciones para añadir y quitar la clase collapsed cuando clickamos el boton addBtn
 
 function showNewCatForm() {
   newForm.classList.remove('collapsed');
-}
+};
 function hideNewCatForm() {
   newForm.classList.add('collapsed');
-}
+};
+// Funcion manejadora que llamaremos cuando el cliente haga click
 function handleClickNewCatForm(event) {
   event.preventDefault();
   if (newForm.classList.contains('collapsed')) {
-    addBtn.addEventListener('click', showNewCatForm);
+    showNewCatForm();
   } else {
-    addBtn.addEventListener('click', hideNewCatForm);
+    hideNewCatForm();
   }
-}
+};
 
+// Llamamos a la funcion para que se ejecute
  addBtn.addEventListener('click', handleClickNewCatForm);
+
+// Evento click y que filtre la informacion que introduce la usuaria, para que muestre solo los gatitos que encajen con la descripcion. 
+
+// const input_search_desc = document.querySelector('.js_in_search_desc');
+
+// const descrSearchText = input_search_desc.value;
+
+const buttonSearch = document.querySelector('.js-button-search');
+
+const filterKitten = (event) => {
+  event.preventDefault();
+  // declaramos la constante del valor del input (no entiendo porque dentro si funciona y fuera no funcionaba)
+  const descrSearchText = input_search_desc.value;
+  // necesitamos limpiar la lista de gatitos antes de que empiece a mostrarnos el que queremos
+  kittenList.innerHTML = ''; 
+  if (kitten1Desc.includes(descrSearchText.toLowerCase())) {
+    kittenList.innerHTML += kittenOne;
+  }
+  if (kitten2Desc.includes(descrSearchText.toLowerCase())) {
+    kittenList.innerHTML += kittenTwo;
+  }
+  if (kitten3Desc.includes(descrSearchText.toLowerCase())) {
+    kittenList.innerHTML += kittenThree;
+  }
+};
+
+buttonSearch.addEventListener('click', filterKitten);
